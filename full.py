@@ -90,7 +90,11 @@ def normalizecolumns(colfolder):
 		 	writer = csv.writer(csvfile,  quoting=csv.QUOTE_ALL)
 		 	for t in xrange(0, len(nor_hardwareeventcount)):
 		 		writer.writerow([hardwareeventtype[t], nor_hardwareeventcount[t], nor_hardwareeventsamplecount[t], datatype[t], filename[t]])
-
+			hardwareeventtype[:] = []
+	 		nor_hardwareeventsamplecount[:] = []
+	 		nor_hardwareeventcount[:] = []
+	 		datatype[:] = []
+	 		filename[:] = []
 		print name + "  Done" 
 	print ("#")*150 #dir finished
 
