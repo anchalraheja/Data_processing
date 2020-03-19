@@ -8,13 +8,13 @@ data2 = "PDF_VTUNE"
 def coltocsv(cln):
 #This is for Clean Data
 	print cln
-	allfiles= os.listdir("C:\Users\\anraheja\Desktop\DUMMY_DATA2\DUMMY_DATA\\" + cln + "\\")#fetching all the files from directory
+	allfiles= os.listdir("C:\Users\\\Desktop\DUMMY_DATA2\DUMMY_DATA\\" + cln + "\\")#fetching all the files from directory
 	print "Converting Following files"
 	print allfiles
 	for rownumber in range(3,22): #reading the cells in csv 
 		for i in allfiles: #picking files from dir
 			
-			z = "C:\Users\\anraheja\Desktop\DUMMY_DATA2\DUMMY_DATA\\" + cln + "\\" + i
+			z = "C:\Users\\\Desktop\DUMMY_DATA2\DUMMY_DATA\\" + cln + "\\" + i
 			wb = openpyxl.load_workbook(z)
 			sheet = wb.worksheets[0]
 			# # #fecthing A B C cells
@@ -30,18 +30,18 @@ def coltocsv(cln):
 
 			#Writing onto CSV
 			dirname = cln +"_column_to_CSV\\" + str(a) + ".csv"
-			csvfilename ="C:\Users\\anraheja\Desktop\DUMMY_DATA2\DUMMY_DATA\\" + dirname
+			csvfilename ="C:\Users\\\Desktop\DUMMY_DATA2\DUMMY_DATA\\" + dirname
 			file_path = path.relpath(csvfilename)
 			with open(file_path, "ab") as csvfile:
 			 	writer = csv.writer(csvfile,  quoting=csv.QUOTE_ALL)
 			  	writer.writerow([a, b, c, cln, i])
 
 def normalizecolumns(colfolder):
-	allfiles= os.listdir("C:\Users\\anraheja\Desktop\DUMMY_DATA2\DUMMY_DATA\\"+ colfolder +"_column_to_CSV\\")
+	allfiles= os.listdir("C:\Users\\\Desktop\DUMMY_DATA2\DUMMY_DATA\\"+ colfolder +"_column_to_CSV\\")
 	# print allfiles
 	for name in allfiles:
 		# print name
-		filepath = "C:\Users\\anraheja\Desktop\DUMMY_DATA2\DUMMY_DATA\\"+ colfolder +"_column_to_CSV\\" + name
+		filepath = "C:\Users\\\Desktop\DUMMY_DATA2\DUMMY_DATA\\"+ colfolder +"_column_to_CSV\\" + name
 		# print filepath
 
 		with open(filepath, 'r') as f:
@@ -76,7 +76,7 @@ def normalizecolumns(colfolder):
 		if ( sum(hardwareeventsamplecount_raw) > 1 ):
 			nor_hardwareeventsamplecount = [i/sum(hardwareeventsamplecount_raw) for i in hardwareeventsamplecount_raw]
 		
-		normalized_directory = "C:\Users\\anraheja\Desktop\DUMMY_DATA2\DUMMY_DATA\\"+ colfolder +"_to_CSV_Normalized\\" + name
+		normalized_directory = "C:\Users\\\Desktop\DUMMY_DATA2\DUMMY_DATA\\"+ colfolder +"_to_CSV_Normalized\\" + name
 		
 
 		# print len(hardwareeventtype)
@@ -101,9 +101,9 @@ def normalizecolumns(colfolder):
 
 
 def combine(folder1, folder2):
-	directory1 = "C:\Users\\anraheja\Desktop\DUMMY_DATA2\DUMMY_DATA\\"+ folder1 +"_to_CSV_Normalized\\"
-	directory2 = "C:\Users\\anraheja\Desktop\DUMMY_DATA2\DUMMY_DATA\\"+ folder2 +"_to_CSV_Normalized\\"
-	directory3 = "C:\Users\\anraheja\Desktop\DUMMY_DATA2\DUMMY_DATA\Combined_Normalized\\"
+	directory1 = "C:\Users\\\Desktop\DUMMY_DATA2\DUMMY_DATA\\"+ folder1 +"_to_CSV_Normalized\\"
+	directory2 = "C:\Users\\\Desktop\DUMMY_DATA2\DUMMY_DATA\\"+ folder2 +"_to_CSV_Normalized\\"
+	directory3 = "C:\Users\\\Desktop\DUMMY_DATA2\DUMMY_DATA\Combined_Normalized\\"
 	os.chdir(directory1)
 	os.system("copy *.csv merged1.csv")
 	os.chdir(directory2)
